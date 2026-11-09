@@ -123,10 +123,6 @@
                         <span>JavaScript</span>
                         <span>PostgreSQL</span>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> Code Base</a>
-                        <a href="https://github.io" target="_blank"><i class="fas fa-external-link-alt"></i> Open App</a>
-                    </div>
                 </div>
             </div>
             <!-- Project 2 -->
@@ -140,10 +136,6 @@
                         <span>Bootstrap UI</span>
                         <span>SQLAlchemy</span>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> Code Base</a>
-                        <a href="https://github.io" target="_blank"><i class="fas fa-external-link-alt"></i> Open App</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -155,8 +147,10 @@
         <div class="contact-container">
             <p class="contact-subtitle">Looking for an engineer to build clean backend APIs or dynamic user interfaces? Let's talk.</p>
             
-            <!-- REMOVED target action from form to completely block browser redirections -->
-            <form id="portfolio-contact-form" class="contact-form" data-endpoint="https://formspree.io">
+            <form id="portfolio-contact-form" class="contact-form">
+                <!-- Drop your Web3Forms Access Key right here -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
@@ -176,20 +170,38 @@
         <p>&copy; 2026 Williams. All rights reserved.</p>
     </footer>
 
-    <!-- Formspree Secure Background Submitter Logic -->
+    <!-- Web3Forms High-Reliability JavaScript Handler -->
     <script>
-        document.getElementById("portfolio-contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Absolute block on browser page redirection
+        document.getElementById("portfolio-contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
             
             const btn = document.getElementById("submit-btn");
             const initialText = btn.textContent;
-            const endpoint = this.getAttribute("data-endpoint"); // Reads URL safely from metadata
-            
             btn.textContent = "Sending...";
             btn.disabled = true;
 
-            const payload = new FormData(this);
-            
-            fetch(endpoint, {
+            const formData = new FormData(this);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch("https://web3forms.com", {
                 method: "POST",
-                body: payload,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    btn.textContent = "Message Sent Successfully!";
+                    btn.style.backgroundColor = "#22c55e";
+                    this.reset();
+                } else {
+                    alert(res.message || "Something went wrong.");
+                    btn.textContent = initialText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
