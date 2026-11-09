@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Williams | Software Engineer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Williams<span>.dev</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Williams</span></h1>
+                <h2>Full-Stack Software Engineer</h2>
+                <p>I design and engineer robust backend systems, data-driven web applications, and secure automations using Python, Flask, and JavaScript.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn primary-btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Let's Talk</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Williams Profile Photo">
+            </div>
+        </div>
+    </header>
+
+    <!-- About & Experience Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About & Experience</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am a passionate software engineer focused on building clean, efficient, and maintainable software architecture. Through rigorous technical training at Zone01 Kisumu and hands-on professional experiences, I have developed a strong foundation in systems analysis, database design, and end-to-end web deployment pipelines.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="date">2026 - Present</span>
+                    <h3>Software Engineering Trainee</h3>
+                    <h4>Zone01 Kisumu</h4>
+                    <p>Immersive, peer-to-peer software engineering program focusing on advanced data structures, algorithmic optimization, full-stack frameworks, and scalable development paradigms.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2025</span>
+                    <h3>ICT Attaché</h3>
+                    <h4>Homa Bay County Public Service Board</h4>
+                    <p>Assisted in infrastructure maintenance, tech support automation, network configuration tracking, and database querying for administrative record management systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <h2 class="section-title">Technical Matrix</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Languages</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>HTML5 & CSS3</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-layer-group"></i> Frameworks & Tools</h3>
+                <ul>
+                    <li>Flask</li>
+                    <li>Node.js / Express</li>
+                    <li>RESTful APIs</li>
+                    <li>Git & GitHub</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Infrastructure</h3>
+                <ul>
+                    <li>PostgreSQL / MySQL</li>
+                    <li>Supabase Cloud</li>
+                    <li>Render / Vercel</li>
+                    <li>Linux Systems</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Biometric Attendance System</h3>
+                    <p class="project-description">A real-time facial recognition application engineered to automate organizational workforce clock-ins, optimize verification pipelines, and log timestamps securely into a relational storage system.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>OpenCV</span>
+                        <span>Flask</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> Code Base</a>
+                        <a href="#" class="disabled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Enterprise Support Ticketing App</h3>
+                    <p class="project-description">A centralized service desk solution supporting role-based access controls (RBAC), multi-stage issue lifecycle tracking, and instant workflow notifications designed for enterprise internal IT infrastructure.</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>Flask API</span>
+                        <span>SQLAlchemy</span>
+                        <span>Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> Code Base</a>
+                        <a href="#" class="disabled"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <p class="contact-subtitle">Have a project or a role in mind? Let's collaborate and build something scalable.</p>
+            <form class="contact-form" action="https://formspree.io/f/xvkkjazn" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="_next" value="http://localhost:5000">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn btn-block">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Williams. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
