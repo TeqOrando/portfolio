@@ -170,38 +170,39 @@
         <p>&copy; 2026 Williams. All rights reserved.</p>
     </footer>
 
-    <!-- Web3Forms High-Reliability JavaScript Handler -->
+    <!-- WhatsApp contact handler -->
     <script>
-        document.getElementById("portfolio-contact-form").addEventListener("submit", function(e) {
+        const WHATSAPP_NUMBER = "254712118331";
+
+        document.getElementById("portfolio-contact-form").addEventListener("submit", function (e) {
             e.preventDefault();
-            
+
             const btn = document.getElementById("submit-btn");
-            const initialText = btn.textContent;
-            btn.textContent = "Sending...";
-            btn.disabled = true;
-
             const formData = new FormData(this);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
+            const name = formData.get("name");
+            const email = formData.get("email");
+            const message = formData.get("message");
+            const whatsappMessage = [
+                "Hello Williams,",
+                "",
+                `Name: ${name}`,
+                `Email: ${email}`,
+                "",
+                "Message:",
+                message
+            ].join("\n");
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
-            fetch("https://web3forms.com", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let res = await response.json();
-                if (response.status == 200) {
-                    btn.textContent = "Message Sent Successfully!";
-                    btn.style.backgroundColor = "#22c55e";
-                    this.reset();
-                } else {
-                    alert(res.message || "Something went wrong.");
-                    btn.textContent = initialText;
-                    btn.disabled = false;
-                }
-            })
-            .catch(error => {
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+            btn.textContent = "Opening WhatsApp...";
+            btn.disabled = true;
+            this.reset();
+
+            setTimeout(() => {
+                btn.textContent = "Send Message";
+                btn.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
